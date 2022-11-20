@@ -82,10 +82,9 @@ export default {
   		finalObj: {},
   		step: 1,
   		attachments:[],
+  		factionString : '',
   		factions: [
-  		'Imperial_Guard',
-  		'Imperial_Fists',
-  		'World_Eaters'
+  
   		],
   		DataText: 
   		``
