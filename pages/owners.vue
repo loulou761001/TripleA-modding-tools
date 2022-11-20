@@ -3,10 +3,15 @@
 		<div v-if='!done'>
 			<div  v-for='(line,index) in this.finalObj'>
 				<p>{{line.name}}</p>
-				<select name='owner' v-model="line.owner">
-					<option value="">Neutral</option>
-					<option :value="faction" v-for="faction in factions">{{faction}}</option>
-				</select>
+				<div class='owners'>
+					<label>
+						<input type="radio" value="" v-model="line.owner" checked><span>Neutrals</span>
+					</label>
+					<label v-for="faction in factions">
+						<input type="radio" :value="faction" :name='faction' v-model="line.owner"><span :for="faction">{{faction}}</span>
+					</label>
+					
+				</div>
 				<p>-------</p>
 			</div>
 			<button @click='doneMethod()'>Done!</button>
@@ -193,3 +198,15 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+	.owners {
+		display: flex;
+		flex-direction: column;
+	}
+	label {
+		background-color: silver;
+		padding:5px;
+		margin-bottom: 2px
+	}
+</style>
