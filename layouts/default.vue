@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<div class="header">
-			<a href="/">Attachments page</a>
-			<a href="/owners">Owners page</a>
+			<a href="">Attachments page</a>
+			<a href="owners">Owners page</a>
 		</div>
  	<Nuxt />
 	</div>

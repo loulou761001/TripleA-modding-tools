@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'tool',
+    title: 'TripleA xml tools',
     htmlAttrs: {
       lang: 'en'
     },
@@ -15,6 +15,10 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  mode: 'static',
+   router: {
+      base: '/TripleA-modding-tools/'
+   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
