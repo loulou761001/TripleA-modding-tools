@@ -13,7 +13,7 @@
 				<input type="checkbox" id="impassable" v-model='line.isImpassable'>Impassable</input>
 				<input type="checkbox" id="victoryCity" v-model='line.victoryCity'>Victory city</input>
 				<input type="checkbox" id="capital" v-model='line.capital.status'>Capital</input>
-				<input type="text" name="capital" v-if='line.capital.status===true' v-model='line.capital.value' placeholder="Owner"></input>
+				<input type="text" name="capital" v-model='line.capital.value' placeholder="Capital owner (ONLY WORKS IF CAPITAL IS CHECKED)"></input>
 				<p>-------</p>
 			</div>
 			<button @click='doneMethod()'>Done!</button>
@@ -35,17 +35,30 @@ export default {
   fetch() {
   	
   },
-
+  watch: {
+  	finalObj() {
+  		console.log(this.finalObj)
+  	}
+  },
   methods: {
+  	changeCapStatus(index,data) {
+  		console.log('change')
+  		if(this.finalObj[index].capital.status===true) {
+  			this.finalObj[index].capital.status=false
+  		} else {
+  			this.finalObj[index].capital.status=true
+  		}
+  		console.log(this.finalObj[index].capital.status)
+  		console.log(data)
+  	},
   	logObj(index) {
   		console.log('finalObj['+index+']',this.finalObj[index])
   	},
-  	stepOne() {
-  		console.log(this.DataText)
+  	async stepOne() {
 	  	this.DataArray = this.DataText.split('\n');
 	  	console.log(this.DataArray[0])
 
-	  	this.DataArray.forEach((line,index) => {
+	  	await this.DataArray.forEach((line,index) => {
 	  		console.log(line)
 	  		let lineSplit = line.split(' ')
 	  		this.finalObj[index] = {
